@@ -1,0 +1,21 @@
+{
+    "id": "chatcmpl-6vwo80ud3htZrz8plpQrzv1doM7co",
+    "object": "chat.completion",
+    "created": 1679268772,
+    "model": "gpt-4-0314",
+    "usage": {
+        "prompt_tokens": 6026,
+        "completion_tokens": 752,
+        "total_tokens": 6778
+    },
+    "choices": [
+        {
+            "message": {
+                "role": "assistant",
+                "content": "To implement the session protocol interface according to the provided specifications, I will propose a high-level structure and guidance for implementing the required methods and functions.\n\n1. Begin by creating a new file called sessions.go inside the utility package. Add the import statements required for this file at the top of this file.\n\n```go\npackage utility\n\nimport (\n    coreTypes \"github.com/pokt-network/pocket/shared/core/types\"\n    types \"github.com/pokt-network/pocket/utility/types\"\n)\n```\n\n2. Next, implement the `Session` interface in the sessions.go file.\n\n```go\ntype Session interface {\n    NewSession(sessionHeight int64, relayChain RelayChain, geoZone GeoZone, application *coreTypes.Actor) (Session, types.Error)\n    GetSessionID() []byte\n    GetSessionHeight() int64\n    GetRelayChain() RelayChain\n    GetGeoZone() GeoZone\n    GetApplication() *coreTypes.Actor\n    GetServicers() []*coreTypes.Actor\n    GetFishermen() []*coreTypes.Actor\n}\n```\n\n3. Implement session struct based on the session interface.\n\n```go\ntype session struct {\n    sessionId   []byte\n    height      int64\n    relayChain  RelayChain\n    geoZone     GeoZone\n    application *coreTypes.Actor\n    servicers   []*coreTypes.Actor\n    fishermen   []*coreTypes.Actor\n}\n```\n\n4. Implement the `NewSession` function according to the provided requirements.\n\n```go\nfunc (s *session) NewSession(sessionHeight int64, relayChain RelayChain, geoZone GeoZone, application *coreTypes.Actor) (Session, types.Error) {\n    // TODO: Implement the function to create new session by following the provided specifications.\n    // - Select session servicers and fishermen\n    // - Initialize session struct with the provided parameters and selected servicers and fishermen\n    return s, nil // return the session instance\n}\n```\n\n5. Implement the session pairing criteria by implementing the `selectSessionServicers` and `selectSessionFishermen` functions.\n\n```go\nfunc (s *session) selectSessionServicers(numServicers int) ([]*coreTypes.Actor, types.Error) {\n    // TODO: Implement the function to select session servicers based on the provided specifications.\n    return nil, nil\n}\n\nfunc (s *session) selectSessionFishermen(numFishermen int) ([]*coreTypes.Actor, types.Error) {\n    // TODO: Implement the function to select session fishermen based on the provided specifications.\n    return nil, nil\n}\n```\n\n6. Implement the session getter functions `GetSessionID`, `GetSessionHeight`, `GetRelayChain`, `GetGeoZone`, `GetApplication`, `GetServicers`, and `GetFishermen`.\n\n```go\nfunc (s *session) GetSessionID() []byte {\n    return s.sessionId\n}\n\nfunc (s *session) GetSessionHeight() int64 {\n    return s.height\n}\n\nfunc (s *session) GetRelayChain() RelayChain {\n    return s.relayChain\n}\n\nfunc (s *session) GetGeoZone() GeoZone {\n    return s.geoZone\n}\n\nfunc (s *session) GetApplication() *coreTypes.Actor {\n    return s.application\n}\n\nfunc (s *session) GetServicers() []*coreTypes.Actor {\n    return s.servicers\n}\n\nfunc (s *session) GetFishermen() []*coreTypes.Actor {\n    return s.fishermen\n}\n```\n\nOnce the above structure and functions have been implemented, you can continue improving and refining the implementation by following the provided specifications and requirements."
+            },
+            "finish_reason": "stop",
+            "index": 0
+        }
+    ]
+}

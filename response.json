@@ -1,0 +1,21 @@
+{
+    "id": "chatcmpl-6vwkY1QvAMYiY4yoeIkETjBaMzMN1",
+    "object": "chat.completion",
+    "created": 1679268550,
+    "model": "gpt-4-0314",
+    "usage": {
+        "prompt_tokens": 7945,
+        "completion_tokens": 247,
+        "total_tokens": 8192
+    },
+    "choices": [
+        {
+            "message": {
+                "role": "assistant",
+                "content": "Based on the provided information, it's required to implement the session protocol interface and required methods for the Utility Specification. Here is the Go implementation for the session protocol interface and its methods:\n\n```go\npackage utility\n\nimport (\n\t\"github.com/pokt-network/pocket/utility/types\"\n\t\"github.com/pokt-network/pocket/shared/core/types\"\n\t\"github.com/pokt-network/pocket/shared/crypto\"\n)\n\ntype Session interface {\n\tNewSession(sessionHeight int64, relayChain RelayChain, application *coreTypes.Actor) (Session, types.Error)\n\tGetSessionID() []byte             \n\tGetSessionHeight() int64          \n\tGetRelayChain() RelayChain\n\tGetApplication() *coreTypes.Actor \n\tGetServicers() []*coreTypes.Actor\n\tGetFishermen() []*coreTypes.Actor\n}\n\ntype session struct {\n\tsessionId   []byte\n\theight      int64\n\trelayChain  RelayChain\n\tapplication *coreTypes.Actor\n\tservicers   []*coreTypes.Actor\n\tfishermen   []*coreTypes.Actor\n}\n\nfunc (s *session) NewSession(\n\tsessionHeight int64,\n\trelayChain RelayChain,\n\tapplication *coreTypes.Actor,\n) (Session, types.Error) {\n\t//"
+            },
+            "finish_reason": "length",
+            "index": 0
+        }
+    ]
+}

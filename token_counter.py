@@ -1,3 +1,4 @@
+import requests
 import tiktoken
 
 
@@ -24,3 +25,10 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo-0301"):
             f"""num_tokens_from_messages() is not presently implemented for model {model}.
   See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
         )
+
+
+if __name__ == "__main__":
+    URL = "https://raw.githubusercontent.com/pokt-network/pocket-network-protocol/main/utility/README.md"
+    response = requests.get(URL)
+    print(response.text)
+    print(num_tokens_from_messages([response.text]))
